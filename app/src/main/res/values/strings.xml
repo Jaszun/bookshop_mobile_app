@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">Księgarnia</string>
+
+    <string-array name="categories">
+        <item>Fantastyka</item>
+        <item>Sci-Fi</item>
+        <item>Romans</item>
+        <item>Powieść historyczna</item>
+        <item>Nowela</item>
+        <item>Horror</item>
+        <item>Kryminał i thriller</item>
+        <item>Poezja</item>
+        <item>Biografia i reportaż</item>
+        <item>Powieść młodzieżowa</item>
+        <item>Lieratura dziecięca</item>
+        <item>Książki kucharskie</item>
+        <item>Poradniki</item>
+        <item>Podręczniki</item>
+    </string-array>
+
+    <!--  categories xml  -->
+
+    <string name="categories_title">Kategorie</string>
+    <string name="category_show_all">Pokaż wszystkie</string>
+    <string name="categories_back">Powrót</string>
+    <string name="categories_number_of_books">Liczba tytułów: </string>
+    <string name="categories_all">Wszystkie kategorie</string>
+
+    <!--  navigation menu titles  -->
+
+    <string name="nav_search">Szukaj</string>
+    <string name="nav_cart">Koszyk</string>
+    <string name="nav_profile">Profil</string>
+    <string name="books_not_found">Nie znaleziono książek spełniających te kryteria</string>
+    <string name="show_more_results">Pokaż więcej wyników</string>
+
+    <string name="hint_category_book">Książka</string>
+    <string name="hint_category_author">Autor</string>
+    <string name="hint_category_tag">Podkategoria</string>
+    <string name="search_in">Szukaj w:</string>
+    <string name="login_button">Zaloguj się / Zarejestruj się</string>
+    <string name="settings_and_info">Ustawienia i informacje</string>
+    <string name="change_theme">Zmień motyw aplikacji</string>
+    <string name="change_language">Zmień język w aplikacji</string>
+    <string name="author_info">Informacje o autorze</string>
+    <string name="save_login">Zapisz dane logowania</string>
+
+    <string-array name="themes">
+        <item>Domyślny</item>
+        <item>Jasny</item>
+        <item>Ciemny</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>Polski</item>
+        <item>English</item>
+    </string-array>
+    <string name="add_to_cart">Dodaj do koszyka</string>
+    <string name="register_for_free"><u>Zarejestruj się za darmo!</u></string>
+    <string name="dont_have_account">Nie masz jeszcze konta?</string>
+    <string name="log_in">Zaloguj</string>
+    <string name="insert_login">Podaj login (email):</string>
+    <string name="insert_password">Podaj hasło:</string>
+    <string name="repete_password">Powtórz hasło:</string>
+    <string name="insert_phone_num">Podaj numer telefonu:</string>
+    <string name="do_have_accont">Masz już konto?</string>
+    <string name="log_in_underline"><u>Zaloguj się</u></string>
+    <string name="register">Zarejestruj się</string>
+    <string name="welcome">Witaj</string>
+    <string name="empty_field_error_message">To pole nie może być puste</string>
+    <string name="logout"><u>Wyloguj się</u></string>
+    <string name="user_already_exists_error_message">Ten adres email jest już zajęty</string>
+    <string name="invalid_email_error_message">Adres email nie jest poprawny</string>
+    <string name="password_too_short_error_message">Hasło musi składać się z przynajmniej 8 znaków</string>
+    <string name="repeted_password_not_the_same_error_message">Hasła nie są takie same</string>
+    <string name="invalid_phone_num_error_message">Numer telefonu jest niepoprawny</string>
+    <string name="phone_num_already_taken_error_message">Ten numer telefonu jest już zajęty</string>
+    <string name="user_added">Użytkownik został pomyślnie dodany do systemu</string>
+    <string name="empty_cart">Twój koszyk jest pusty!</string>
+    <string name="find_something"><u>Znajdź coś dla siebie</u></string>
+    <string name="make_an_order">Zamów</string>
+    <string name="item_added_to_cart">Dodano do koszyka</string>
+    <string name="remove_from_cart_title">Usuń przedmiot z koszyka</string>
+    <string name="remove_from_cart_message">Czy chcesz usunąć ten przedmiot z koszyka?</string>
+    <string name="cancel">Anuluj</string>
+    <string name="remove">Usuń</string>
+    <string name="final_price">Łączna cena:</string>
+    <string name="buying_as_guest_title">Kupujesz jako Gość</string>
+    <string name="buying_as_guest_message">Nie będziesz miał możliwości do sprawdzenia statusu zamówienia z poziomu aplikacji</string>
+    <string name="continue_string">Kontunuuj</string>
+    <string name="quantity">Ilość:</string>
+    <string name="share_cart">Udostępnij koszyk</string>
+    <string name="products_missing_title">Deficyt produktów</string>
+    <string name="products_missing_message">Niektóre produty zostały w międzyczasie wykupione w następujących ilościach:</string>
+    <string name="sorry_for_complications">Przepraszamy za komplikacje :(</string>
+    <string name="insert_buyer_info">Podaj dane kupującego:</string>
+    <string name="buyer_data_hint">Imię Nazwisko / Nazwa Firmy</string>
+    <string name="insert_email">Podaj adres email:</string>
+    <string name="order_accepted">Zamówienie zostało przyjęte!</string>
+    <string name="modify_quantity_in_stock">Zmień ilość produktów na składzie:</string>
+    <string name="current_quantity">Aktualna ilość produktu:</string>
+    <string name="apply_changes">Zatwierdź</string>
+    <string name="modify_quantity_dialog_title">Zmiana ilości książki</string>
+    <string name="modify_quantity_dialog_message">Czy na pewno chcesz zmienić ilość tej książki?</string>
+    <string name="order_accepted_message">Twoje zamówienie zostało przyjęte!</string>
+    <string name="purchase_date">Data zakupu:</string>
+    <string name="buyer">Kupujący:</string>
+    <string name="check_orders">Zobacz swoje zamówienia</string>
+</resources>

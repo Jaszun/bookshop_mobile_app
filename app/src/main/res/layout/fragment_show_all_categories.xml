@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ShowAllCategoriesFragment"
+    android:background="@color/app_color_primary">
+
+    <RelativeLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_secondary">
+
+        <TextView
+            android:id="@+id/text_view_categories_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categories_back"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/text_view_categories_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categories_title"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="25sp"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/divider_image"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/title_container"
+        android:src="@drawable/s_divider"/>
+
+    <ListView
+        android:id="@+id/list_view_categories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider_image"
+        android:scrollbarStyle="outsideOverlay"
+        android:divider="@color/app_color_secondary"
+        android:listSelector="@color/app_color_light" />
+
+</RelativeLayout>

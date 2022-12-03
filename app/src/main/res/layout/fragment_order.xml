@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_color_light">
+
+    <RelativeLayout
+        android:id="@+id/order_back_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_secondary"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/order_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:backgroundTint="@color/app_color_primary"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true"
+        android:layout_below="@id/order_back_button_container">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp">
+
+                <TextView
+                    android:id="@+id/buyer_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/insert_buyer_info"
+                    android:textColor="@color/app_color_secondary"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/buyer_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@id/buyer_label"
+                    android:gravity="center"
+                    android:hint="@string/buyer_data_hint"
+                    android:padding="3dp"
+                    android:inputType="text" />
+
+                <TextView
+                    android:id="@+id/email_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@id/buyer_edit_text"
+                    android:text="@string/insert_email"
+                    android:textColor="@color/app_color_secondary"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/order_email_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@id/email_label"
+                    android:gravity="center"
+                    android:hint="sample.mail@email.com"
+                    android:padding="3dp"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/phone_num_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@id/order_email_edit_text"
+                    android:text="@string/insert_phone_num"
+                    android:textColor="@color/app_color_secondary"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"/>
+
+                <EditText
+                    android:id="@+id/order_phone_num_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@id/phone_num_label"
+                    android:gravity="center"
+                    android:hint="123123123"
+                    android:padding="3dp"
+                    android:inputType="phone" />
+
+                <ImageView
+                    android:id="@+id/divider_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/order_phone_num_edit_text"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/s_divider"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/order_recycler_view_products"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_centerHorizontal="true"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:scrollbars="none"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_below="@id/divider_image"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/order_final_price_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_below="@id/order_recycler_view_products">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/final_price"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/order_final_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100PLN"
+                        android:layout_marginTop="1dp"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/make_an_order_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/order_final_price_container"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/make_an_order"
+                    android:layout_marginBottom="70dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

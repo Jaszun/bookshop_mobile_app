@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="gray">#4E4E4E</color>
+    <color name="transparent">#00000000</color>
+
+    <!--  Theme colors   -->
+
+    <!--  Default   -->
+    <color name="app_color_primary">#3361B5</color>
+    <color name="app_color_secondary">#1a396b</color>
+    <color name="app_color_light">#03A9F4</color>
+    <color name="app_color_dark">#0F2240</color>
+
+<!--    &lt;!&ndash;  Light   &ndash;&gt;-->
+<!--    <color name="light_app_color_primary">#03A9F4</color>-->
+<!--    <color name="light_app_primary_variant">#3361B5</color>-->
+<!--    <color name="light_app_color_secondary">#D1D1D1</color>-->
+<!--    <color name="light_app_secondary_variant">#B8B8B8</color>-->
+
+<!--    &lt;!&ndash;  Dark   &ndash;&gt;-->
+<!--    <color name="dark_app_color_primary">#3361B5</color>-->
+<!--    <color name="dark_app_primary_variant">#03A9F4</color>-->
+<!--    <color name="dark_app_color_secondary">#1a396b</color>-->
+<!--    <color name="dark_app_secondary_variant">#0F2240</color>-->
+</resources>

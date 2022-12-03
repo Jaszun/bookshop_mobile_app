@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bookshop</string>
+    <string name="categories_title">Categories</string>
+    <string name="category_show_all">Show all categories</string>
+    <string name="categories_back">Back</string>
+    <string name="categories_number_of_books">Number of titles: </string>
+    <string name="categories_all">All categories</string>
+
+    <string name="nav_search">Search</string>
+    <string name="nav_cart">Cart</string>
+    <string name="nav_profile">Profile</string>
+
+    <string-array name="categories">
+        <item>Fantasy</item>
+        <item>Sci-Fi</item>
+        <item>Romance</item>
+        <item>Historical novel</item>
+        <item>Novel</item>
+        <item>Horror</item>
+        <item>Crime and thriller</item>
+        <item>Poetry</item>
+        <item>Biography and reportage</item>
+        <item>Youth novel</item>
+        <item>Childrens literature</item>
+        <item>Cook books</item>
+        <item>Guides</item>
+        <item>Handbooks</item>
+    </string-array>
+    <string name="books_not_found">There are no books that match given criteria</string>
+    <string name="show_more_results">Show more results</string>
+    <string name="hint_category_book">Book</string>
+    <string name="hint_category_author">Author</string>
+    <string name="hint_category_tag">Subcategory</string>
+    <string name="search_in">Search in:</string>
+    <string name="login_button">Log in / Sign in</string>
+    <string name="settings_and_info">Settings and info</string>
+    <string name="change_theme">Change app theme</string>
+    <string name="change_language">Change app language</string>
+    <string name="author_info">Information about the author</string>
+    <string name="save_login">Save login data</string>
+
+    <string-array name="themes">
+        <item>Default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>Polski</item>
+        <item>English</item>
+    </string-array>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="register_for_free"><u>Register for free!</u></string>
+    <string name="dont_have_account">Don\'t have an account yet?</string>
+    <string name="log_in">Login</string>
+    <string name="insert_login">Insert login (email):</string>
+    <string name="insert_password">Insert password:</string>
+    <string name="repete_password">Repete password:</string>
+    <string name="insert_phone_num">Insert your phone number:</string>
+    <string name="do_have_accont">Have an account already?</string>
+    <string name="log_in_underline"><u>Log in</u></string>
+    <string name="register">Register</string>
+    <string name="welcome">Welcome</string>
+    <string name="empty_field_error_message">This field can\'t be empty</string>
+    <string name="logout"><u>Log out</u></string>
+    <string name="user_already_exists_error_message">This email adress is already taken</string>
+    <string name="invalid_email_error_message">Email adress isn\'t valid</string>
+    <string name="password_too_short_error_message">Password should be at least 8 characters long</string>
+    <string name="repeted_password_not_the_same_error_message">Passwords are not the same</string>
+    <string name="invalid_phone_num_error_message">Phone number is invalid</string>
+    <string name="phone_num_already_taken_error_message">This phone number is already taken</string>
+    <string name="user_added">User has been successfully added to the system</string>
+    <string name="empty_cart">Your cart is empty!</string>
+    <string name="find_something"><u>Find something for yourself</u></string>
+    <string name="make_an_order">Make an order</string>
+    <string name="item_added_to_cart">Added item to the cart</string>
+    <string name="remove_from_cart_title">Remove item from cart</string>
+    <string name="remove_from_cart_message">Do you want to remove this item from the cart?</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove">Remove</string>
+    <string name="final_price">Final price:</string>
+    <string name="buying_as_guest_title">You\'re buying as a Guest</string>
+    <string name="buying_as_guest_message">You won\'t be able to check your order status in application</string>
+    <string name="continue_string">Continue</string>
+    <string name="quantity">Quantity:</string>
+    <string name="share_cart">Share cart</string>
+    <string name="products_missing_title">Shortage in products</string>
+    <string name="products_missing_message">Some of the products have been sold in a meantime in the following quantities:</string>
+    <string name="sorry_for_complications">We\'re sorry for the complications :(</string>
+    <string name="insert_buyer_info">Insert buyer\'s data:</string>
+    <string name="buyer_data_hint">Firstname Lastname / Company Name</string>
+    <string name="insert_email">Insert email adress:</string>
+    <string name="order_accepted">The order has been accepted!</string>
+    <string name="modify_quantity_in_stock">Change the quantity of product in stock:</string>
+    <string name="current_quantity">Current quantity of product:</string>
+    <string name="apply_changes">Apply</string>
+    <string name="modify_quantity_dialog_title">Modification of book quantity</string>
+    <string name="modify_quantity_dialog_message">Are you sure you want to change the quantity of this book?</string>
+    <string name="order_accepted_message">Your order has been accepted!</string>
+    <string name="purchase_date">Purchase date:</string>
+    <string name="buyer">Buyer:</string>
+    <string name="check_orders">Check your orders</string>
+</resources>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search_fragment_layout">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/search_main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_color_light">
+
+            <RelativeLayout
+                android:id="@+id/search_search_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/app_color_secondary"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/search_search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/s_rounded"
+                    android:backgroundTint="@color/app_color_dark">
+
+                    <ImageView
+                        android:id="@+id/search_search_bar_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_baseline_search_24" />
+
+                    <EditText
+                        android:id="@+id/search_search_bar_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/search_search_bar_image"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:textSize="13dp"
+                        android:textColorHint="@color/app_color_primary"
+                        android:paddingRight="10dp"
+                        android:background="@color/transparent"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/filters_container"
+                android:layout_below="@id/search_search_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color_secondary"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/search_in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/search_in"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"/>
+
+                <Button
+                    android:id="@+id/select_category_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/search_in"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/app_color_primary"
+                    android:text="@string/categories_all"
+                    android:textSize="10sp"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_recycler_view_products"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/filters_container"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:scrollbars="none"
+                android:orientation="vertical"
+                android:paddingBottom="60dp"/>
+
+            <TextView
+                android:id="@+id/search_show_more_results_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_recycler_view_products"
+                android:text="@string/show_more_results"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="120dp"/>
+
+            <TextView
+                android:id="@+id/no_books_found_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/app_color_secondary"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:text="@string/books_not_found"
+                android:layout_below="@id/filters_container"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

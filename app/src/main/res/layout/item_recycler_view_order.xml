@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/app_color_light"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <RelativeLayout
+        android:id="@+id/order_item_book_info_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:layout_toStartOf="@+id/order_item_quantity_container"
+        android:background="@drawable/s_rounded"
+        android:backgroundTint="@color/app_color_secondary">
+
+        <RelativeLayout
+            android:id="@+id/cover_img_container"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/s_rounded"
+            android:backgroundTint="@color/app_color_primary"
+            android:padding="3dp">
+
+            <ImageView
+                android:id="@+id/order_item_cover_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_background" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/cover_img_container">
+
+            <TextView
+                android:id="@+id/order_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="To jest tytuł książki"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/order_item_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:padding="2dp"
+                android:text="Imie Nazwisko"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/order_item_price_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@id/order_item_divider"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/order_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500zł"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/order_item_quantity_container"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@id/order_item_divider"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/order_item_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="1"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/order_item_divider"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/s_divider"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="80dp"/>
+
+
+</RelativeLayout>

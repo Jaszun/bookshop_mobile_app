@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color_light"
+    android:focusedByDefault="true">
+
+    <RelativeLayout
+        android:id="@+id/preview_back_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_secondary"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/preview_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_arrow_forward_ios_24"
+            android:backgroundTint="@color/app_color_primary"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/preview_back_button_container"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp">
+
+            <RelativeLayout
+                android:id="@+id/book_preview_info_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/product_image_preview"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/b_czapog"/>
+
+                <RelativeLayout
+                    android:id="@+id/book_preview_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/product_image_preview"
+                    android:layout_alignTop="@id/product_image_preview"
+                    android:layout_alignBottom="@id/product_image_preview"
+                    android:backgroundTint="@color/app_color_secondary"
+                    android:background="@drawable/s_rounded"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/product_title_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="The title will be displayed here"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/product_author_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Firstname Lastname"
+                        android:gravity="right"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:layout_above="@id/product_price_preview"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:id="@+id/product_price_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="10000$"
+                        android:gravity="right"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_alignParentBottom="true"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/s_divider"
+                android:layout_below="@id/book_preview_info_container"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <RelativeLayout
+                android:id="@+id/add_to_cart_compontnts_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider">
+
+                <Button
+                    android:id="@+id/add_to_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="@string/add_to_cart"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentEnd="true"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/s_rounded"
+                    android:backgroundTint="@color/app_color_primary"
+                    android:gravity="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="5dp">
+
+                    <Button
+                        android:id="@+id/decrement_quantity"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:backgroundTint="@color/app_color_primary"
+                        android:padding="0dp"
+                        android:layout_margin="0dp"
+                        android:text="-"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/quantity"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="1"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/white"
+                        android:layout_toRightOf="@id/decrement_quantity"/>
+
+                    <Button
+                        android:id="@+id/increment_quantity"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:layout_toRightOf="@id/quantity"
+                        android:backgroundTint="@color/app_color_primary"
+                        android:padding="0dp"
+                        android:text="+"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/product_preview_admin_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_to_cart_compontnts_container"
+                android:layout_marginTop="25dp"
+                android:paddingBottom="70dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/modify_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/modify_quantity_in_stock"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/current_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/current_quantity"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/s_rounded"
+                        android:backgroundTint="@color/app_color_primary"
+                        android:layout_marginRight="20dp">
+
+                        <Button
+                            android:id="@+id/admin_decrement_quantity"
+                            android:layout_width="40dp"
+                            android:layout_height="50dp"
+                            android:backgroundTint="@color/app_color_primary"
+                            android:padding="0dp"
+                            android:layout_margin="0dp"
+                            android:text="-"
+                            android:textSize="20sp"
+                            android:textStyle="bold"/>
+
+                        <EditText
+                            android:id="@+id/admin_quantity"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/white"
+                            android:layout_toRightOf="@id/admin_decrement_quantity"
+                            android:inputType="number|numberSigned"/>
+
+                        <Button
+                            android:id="@+id/admin_increment_quantity"
+                            android:layout_width="40dp"
+                            android:layout_height="50dp"
+                            android:layout_toRightOf="@id/admin_quantity"
+                            android:backgroundTint="@color/app_color_primary"
+                            android:padding="0dp"
+                            android:text="+"
+                            android:textSize="20sp" />
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/apply_stock_quantity_changes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/apply_changes"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

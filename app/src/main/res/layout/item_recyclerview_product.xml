@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="200dp"
+        android:layout_height="130dp"
+        android:background="@drawable/s_rounded"
+        android:backgroundTint="@color/app_color_secondary"
+        android:layout_margin="3dp">
+
+        <RelativeLayout
+            android:id="@+id/cover_img_container"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/s_rounded"
+            android:padding="5dp"
+            android:backgroundTint="@color/app_color_primary">
+
+            <ImageView
+                android:id="@+id/cover_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_background" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/cover_img_container">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingTop="3dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Tytuł"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="13dp"/>
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="3dp"
+                android:layout_above="@id/price"
+                android:text="Imie Nazwisko"
+                android:textSize="12dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="3dp"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:gravity="right"
+                android:text="50zł"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

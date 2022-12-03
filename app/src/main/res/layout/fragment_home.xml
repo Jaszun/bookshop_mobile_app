@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_fragment_layout">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/home_main_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/app_color_light">
+
+            <RelativeLayout
+                android:id="@+id/home_search_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/app_color_secondary"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/home_search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/s_rounded"
+                    android:backgroundTint="@color/app_color_dark">
+
+                    <ImageView
+                        android:id="@+id/home_search_bar_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_baseline_search_24" />
+
+                    <EditText
+                        android:id="@+id/home_search_bar_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/home_search_bar_image"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:textSize="13dp"
+                        android:textColorHint="@color/app_color_primary"
+                        android:paddingRight="10dp"
+                        android:background="@color/transparent"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/categories_container"
+                android:layout_below="@id/home_search_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color_secondary">
+
+                <TextView
+                    android:id="@+id/categories_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/categories_title"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="25sp"/>
+
+                <TextView
+                    android:id="@+id/categories_show_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/category_show_all"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="30dp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_above="@id/recycler_view_categories"
+                    android:layout_alignLeft="@id/categories_title"
+                    android:layout_alignRight="@id/categories_show_all"
+                    android:src="@drawable/s_divider"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/categories_title"
+                    android:scrollbars="horizontal"
+                    android:paddingTop="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/search_hints_container"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_below="@id/home_search_bar_container">
+
+                <ListView
+                    android:id="@+id/search_hint_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    android:background="@color/app_color_dark"
+                    android:divider="@color/transparent"
+                    android:paddingBottom="2dp"
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_recycler_view_products"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/categories_container"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:scrollbars="none"
+                android:orientation="vertical"
+                android:paddingBottom="60dp"/>
+
+            <TextView
+                android:id="@+id/show_more_results_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/home_recycler_view_products"
+                android:text="@string/show_more_results"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="120dp"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

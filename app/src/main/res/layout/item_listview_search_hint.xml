@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:padding="5dp"
+    android:gravity="center_vertical"
+    android:background="@color/app_color_secondary">
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:text="Hint" />
+
+    <TextView
+        android:id="@+id/hint_category"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="10sp"
+        android:layout_toLeftOf="@id/arrow_image"
+        android:text="Category of the hint"
+        android:textColor="@color/white"
+        android:gravity="center_vertical"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrow_image"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:tint="@color/app_color_primary"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

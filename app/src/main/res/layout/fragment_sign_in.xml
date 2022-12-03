@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_color_light">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="70dp">
+
+            <RelativeLayout
+                android:id="@+id/sign_in_back_button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_color_secondary"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp">
+
+                <ImageView
+                    android:id="@+id/sign_in_back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+                    android:backgroundTint="@color/app_color_primary"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sign_in_form_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sign_in_back_button_container"
+                android:paddingRight="40dp"
+                android:paddingLeft="40dp">
+
+                <TextView
+                    android:id="@+id/email_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/insert_login"
+                    android:textColor="@color/app_color_secondary"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <EditText
+                    android:id="@+id/email_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@id/email_label"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:hint="sample.mail@email.com"
+                    android:padding="3dp"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/password_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/insert_password"
+                    android:textColor="@color/app_color_secondary"
+                    android:layout_below="@id/email_edit_text"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <EditText
+                    android:id="@+id/password_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_below="@id/password_label"
+                    android:layout_marginBottom="15dp"
+                    android:padding="3dp"
+                    android:gravity="center"
+                    android:inputType="textPassword"/>
+
+                <ImageView
+                    android:id="@+id/show_password"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignTop="@id/password_edit_text"
+                    android:layout_alignBottom="@id/password_edit_text"
+                    android:layout_alignEnd="@id/password_edit_text"
+                    android:background="@drawable/ic_baseline_visibility_24"
+                    android:backgroundTint="@color/app_color_primary"/>
+
+                <RelativeLayout
+                    android:id="@+id/sign_in_form_inputs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/password_edit_text"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/repete_password_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/repete_password"
+                        android:textColor="@color/app_color_secondary"
+                        android:textStyle="bold"
+                        android:textSize="15sp"/>
+
+                    <EditText
+                        android:id="@+id/repete_password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_below="@id/repete_password_label"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:inputType="textPassword"/>
+
+                    <ImageView
+                        android:id="@+id/show_repeted_password"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@id/repete_password_edit_text"
+                        android:layout_alignBottom="@id/repete_password_edit_text"
+                        android:layout_alignEnd="@id/repete_password_edit_text"
+                        android:background="@drawable/ic_baseline_visibility_24"
+                        android:backgroundTint="@color/app_color_primary"/>
+
+                    <TextView
+                        android:id="@+id/phone_num_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/insert_phone_num"
+                        android:textColor="@color/app_color_secondary"
+                        android:layout_below="@id/repete_password_edit_text"
+                        android:textStyle="bold"
+                        android:textSize="15sp"/>
+
+                    <EditText
+                        android:id="@+id/phone_num_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_below="@id/phone_num_label"
+                        android:layout_marginBottom="15dp"
+                        android:padding="3dp"
+                        android:gravity="center"
+                        android:inputType="phone"
+                        android:hint="123123123"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/sign_in_form_container"
+                android:layout_marginTop="20dp"
+                android:text="@string/log_in"/>
+
+            <TextView
+                android:id="@+id/change_form_type_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/sign_in_button"
+                android:text="@string/dont_have_account"
+                android:textColor="@color/app_color_secondary"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/change_form_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/change_form_type_title"
+                android:text="@string/register_for_free"
+                android:textColor="@color/app_color_dark"
+                android:layout_marginTop="5dp"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

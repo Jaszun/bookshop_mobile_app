@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_color_secondary"
+    android:id="@+id/profile_fragment_layout">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/profile_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="70dp">
+
+            <RelativeLayout
+                android:id="@+id/welcome_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/welcome_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Witaj, takozsosem!"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+
+                <RelativeLayout
+                    android:id="@+id/check_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/welcome_message"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/check_orders_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_orders"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="@color/app_color_primary"
+                        android:layout_alignBottom="@id/check_orders_title"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/login_button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/welcome_panel"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/login_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_button"
+                    android:backgroundTint="@color/app_color_primary"
+                    android:padding="15dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_margin="20dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_and_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/login_button_container"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <ImageView
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:src="@drawable/s_divider"/>
+
+                <TextView
+                    android:id="@+id/settings_and_info_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_and_info"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:layout_marginTop="20dp"/>
+
+                <!--    zmiana motywu, wersja jezykowa, info o autorze     -->
+
+                <RelativeLayout
+                    android:id="@+id/save_login_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/settings_and_info_title"
+                    android:visibility="gone"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/save_login_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/save_login"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <CheckBox
+                        android:id="@+id/save_login_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        app:tint="@color/app_color_primary"
+                        android:layout_alignBottom="@id/save_login_title"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/change_theme_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/save_login_info"
+                    android:text="@string/change_theme"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="60dp"/>
+
+                <Spinner
+                    android:id="@+id/choose_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_alignBottom="@id/change_theme_text_view"
+                    android:layout_alignParentRight="true" />
+
+                <TextView
+                    android:id="@+id/change_language_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/change_theme_text_view"
+                    android:text="@string/change_language"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="60dp"/>
+
+                <Spinner
+                    android:id="@+id/choose_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_alignBottom="@id/change_language_text_view"
+                    android:layout_alignParentRight="true"/>
+
+                <RelativeLayout
+                    android:id="@+id/app_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/change_language_text_view"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/app_info_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/author_info"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="@color/app_color_primary"
+                        android:layout_alignBottom="@id/app_info_title"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/settings_and_info_container"
+                android:layout_marginTop="30dp"
+                android:text="@string/logout"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:paddingBottom="30dp"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
