@@ -99,9 +99,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void showOrders(){
-        //TODO - add orders list view
-
-        Toast.makeText(activity, "Showing orders", Toast.LENGTH_SHORT).show();
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).replace(R.id.profile_fragment_layout, new ShowOrdersFragment()).commit();
     }
 
     private void toggleSaveUser(){

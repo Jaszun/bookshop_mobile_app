@@ -101,4 +101,5 @@
     <string name="purchase_date">Purchase date:</string>
     <string name="buyer">Buyer:</string>
     <string name="check_orders">Check your orders</string>
+    <string name="no_orders">No orders have been found</string>
 </resources>

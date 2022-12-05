@@ -5,49 +5,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/app_color_light">
 
-    <androidx.core.widget.NestedScrollView
+    <RelativeLayout
+        android:id="@+id/show_orders_back_button_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_secondary"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/show_orders_back_button"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="70dp">
+            android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:backgroundTint="@color/app_color_primary"/>
 
-            <RelativeLayout
-                android:id="@+id/show_orders_back_button_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/app_color_secondary"
-                android:layout_marginBottom="20dp"
-                android:padding="10dp">
+    </RelativeLayout>
 
-                <ImageView
-                    android:id="@+id/show_orders_back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
-                    android:backgroundTint="@color/app_color_primary"/>
+    <TextView
+        android:id="@+id/no_orders"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/show_orders_back_button_container"
+        android:layout_marginTop="15dp"
+        android:text="@string/no_orders"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"/>
 
-            </RelativeLayout>
-
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_below="@id/show_orders_back_button_container"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical"
-                android:divider="@color/app_color_secondary"
-                android:nestedScrollingEnabled="true"
-                android:listSelector="@color/app_color_light"/>
-
-        </RelativeLayout>
-
-    </androidx.core.widget.NestedScrollView>
+    <ListView
+        android:id="@+id/show_orders_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/no_orders"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:divider="@color/app_color_secondary"
+        android:nestedScrollingEnabled="true"
+        android:listSelector="@color/app_color_light"
+        android:paddingBottom="70dp"
+        android:clipToPadding="false"/>
 
 </RelativeLayout>

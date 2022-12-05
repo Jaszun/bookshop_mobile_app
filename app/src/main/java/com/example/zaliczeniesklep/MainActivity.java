@@ -511,12 +511,14 @@ public class MainActivity extends AppCompatActivity {
             Spinner themeSpinner = this.findViewById(R.id.choose_theme);
             Spinner langSpinner = this.findViewById(R.id.choose_language);
             RelativeLayout appInfo = this.findViewById(R.id.app_info);
+            RelativeLayout checkOrders = this.findViewById(R.id.check_orders);
 
             if (button.isEnabled()){
                 button.setEnabled(false);
                 themeSpinner.setEnabled(false);
                 langSpinner.setEnabled(false);
                 appInfo.setVisibility(View.GONE);
+                checkOrders.setVisibility(View.GONE);
             }
 
             else{
@@ -524,6 +526,7 @@ public class MainActivity extends AppCompatActivity {
                 themeSpinner.setEnabled(true);
                 langSpinner.setEnabled(true);
                 appInfo.setVisibility(View.VISIBLE);
+                checkOrders.setVisibility(View.VISIBLE);
             }
         }
     }
