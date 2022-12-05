@@ -58,7 +58,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ItemViewHold
         if (order != null) {
             product = helper.getProductByIdFromDB(order.decodeItems()[position][0]);
             quantity = order.decodeItems()[position][1];
-            price = String.format("%.02f", order.getPrice()) + "PLN";
+            price = String.format("%.02f", product.getPrice() * quantity) + "PLN";
         }
 
         else {

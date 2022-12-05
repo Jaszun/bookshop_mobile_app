@@ -81,7 +81,7 @@ public class ShowAllCategoriesFragment extends Fragment {
         adapter = new SimpleAdapter(
                 getActivity().getApplicationContext(),
                 categoriesList,
-                R.layout.item_listview_category,
+                R.layout.item_list_view_category,
                 from,
                 to);
 

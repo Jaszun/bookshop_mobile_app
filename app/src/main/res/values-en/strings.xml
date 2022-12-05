@@ -102,4 +102,8 @@
     <string name="buyer">Buyer:</string>
     <string name="check_orders">Check your orders</string>
     <string name="no_orders">No orders have been found</string>
+    <string name="order_purchase_date">Date and time of purchase:</string>
+    <string name="price_of_order">Price of order:</string>
+    <string name="order_executed">The order has been executed</string>
+    <string name="order_not_executed">The order awaits for execution</string>
 </resources>

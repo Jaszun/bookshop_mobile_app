@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_color_light">
+
+    <RelativeLayout
+        android:id="@+id/show_order_details_back_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color_secondary"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/show_order_details_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_arrow_back_ios_new_24"
+            android:backgroundTint="@color/app_color_primary"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/show_order_details_back_button_container">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/order_details_date_of_purchase_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/order_purchase_date"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:paddingBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/order_details_date_of_purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/order_details_date_of_purchase_label"
+                android:paddingLeft="5dp"
+                android:textSize="17sp"
+                android:textColor="@color/white"
+                android:paddingBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/order_details_price_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/price_of_order"
+                android:layout_below="@id/order_details_date_of_purchase"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:paddingBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/order_details_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/order_details_price_label"
+                android:layout_alignTop="@id/order_details_price_label"
+                android:paddingLeft="5dp"
+                android:textSize="17sp"
+                android:textColor="@color/white"
+                android:paddingBottom="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/show_order_details_recycler_view_products"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/order_details_price"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:scrollbars="vertical"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/order_executed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/order_not_executed"
+                android:textSize="15sp"
+                android:layout_below="@id/show_order_details_recycler_view_products"
+                android:textStyle="bold"
+                android:textColor="@color/app_color_secondary"
+                android:paddingBottom="70dp"/>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</RelativeLayout>

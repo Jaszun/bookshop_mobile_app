@@ -20,6 +20,7 @@ import com.example.zaliczeniesklep.database_entity.Order;
 import com.example.zaliczeniesklep.helper.DatabaseHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -64,6 +65,8 @@ public class ShowOrdersFragment extends Fragment {
 
         orders = helper.getOrdersForUser(activity.getUser().getId());
 
+        Collections.reverse(orders);
+
         if (orders.size() == 0){
             noOrders.setVisibility(View.VISIBLE);
             listView.setVisibility(View.GONE);
@@ -85,7 +88,7 @@ public class ShowOrdersFragment extends Fragment {
 
             ordersMap = new HashMap<>();
             ordersMap.put("id", (i + 1) + ".");
-            ordersMap.put("date", order.getDate());
+            ordersMap.put("date", order.getDate().substring(0, order.getDate().indexOf(" ")));
             ordersMap.put("price", order.getPrice() + " PLN");
 
             ordersList.add(ordersMap);
@@ -103,9 +106,13 @@ public class ShowOrdersFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //TODO - show order details (fragment with recyclerview like in order fragment)
+                Bundle bundle = new Bundle();
+                bundle.putInt("orderId", orders.get(i).getId());
 
-                Toast.makeText(activity, orders.get(i).getDate(), Toast.LENGTH_SHORT).show();
+                Fragment fragment = new ShowOrderDetailsFragment();
+                fragment.setArguments(bundle);
+
+                getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).replace(R.id.show_order_fragment_layout, fragment).commit();
             }
         });
     }

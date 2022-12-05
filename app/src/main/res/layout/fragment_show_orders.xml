@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/app_color_light">
+    android:background="@color/app_color_light"
+    android:id="@+id/show_order_fragment_layout">
 
     <RelativeLayout
         android:id="@+id/show_orders_back_button_container"
@@ -45,8 +46,8 @@
         android:scrollbarStyle="outsideOverlay"
         android:scrollbars="vertical"
         android:divider="@color/app_color_secondary"
-        android:nestedScrollingEnabled="true"
-        android:listSelector="@color/app_color_light"
+        android:listSelector="@color/app_color_primary"
+        android:dividerHeight="1dp"
         android:paddingBottom="70dp"
         android:clipToPadding="false"/>
 

@@ -39,7 +39,7 @@ public class OrderFragment extends Fragment {
 
     private RelativeLayout orderBackButton;
     private TextView finalPriceTextView;
-    private RecyclerView listView;
+    private RecyclerView recyclerView;
     private Button orderButton;
 
     private EditText buyerTextView;
@@ -72,7 +72,7 @@ public class OrderFragment extends Fragment {
 
         cart = activity.getCart();
 
-        listView = view.findViewById(R.id.order_recycler_view_products);
+        recyclerView = view.findViewById(R.id.order_recycler_view_products);
 
         finalPriceTextView = view.findViewById(R.id.order_final_price);
         finalPriceTextView.setText((String.format("%.02f", price) + "PLN"));
@@ -87,7 +87,7 @@ public class OrderFragment extends Fragment {
         orderBackButton = view.findViewById(R.id.order_back_button_container);
         orderBackButton.setOnClickListener(v -> closeFragment());
 
-        listView.setAdapter(new OrderAdapter(activity, cart));
+        recyclerView.setAdapter(new OrderAdapter(activity, cart));
 
         if (activity.getUser() != null){
             emailTextView.setText(activity.getUser().getEmail());

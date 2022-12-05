@@ -291,7 +291,7 @@ public class HomeFragment extends Fragment {
             SimpleAdapter adapter = new SimpleAdapter(
                     getActivity().getApplicationContext(),
                     hintsList,
-                    R.layout.item_listview_search_hint,
+                    R.layout.item_list_view_search_hint,
                     from,
                     to);
 
