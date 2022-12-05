@@ -25,7 +25,9 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/show_order_details_back_button_container">
+        android:layout_below="@id/show_order_details_back_button_container"
+        android:paddingBottom="70dp"
+        android:clipToPadding="false">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -99,12 +101,19 @@
                 android:layout_below="@id/show_order_details_recycler_view_products"
                 android:textStyle="bold"
                 android:textColor="@color/app_color_secondary"
-                android:paddingBottom="70dp"/>
+                android:paddingBottom="20dp"/>
+
+            <Button
+                android:id="@+id/confirm_order_execution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/order_executed"
+                android:layout_centerHorizontal="true"
+                android:text="@string/confirm_execution"/>
 
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 
 </RelativeLayout>

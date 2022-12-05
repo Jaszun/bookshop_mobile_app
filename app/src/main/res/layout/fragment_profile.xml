@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/welcome_message"
@@ -56,6 +56,60 @@
                         android:src="@drawable/ic_baseline_arrow_forward_ios_24"
                         app:tint="@color/app_color_primary"
                         android:layout_alignBottom="@id/check_orders_title"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/check_awaiting_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/check_orders"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/check_awaiting_orders_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_awaiting_orders"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="@color/app_color_primary"
+                        android:layout_alignBottom="@id/check_awaiting_orders_title"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/check_executed_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/check_awaiting_orders"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/check_executed_orders_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_executed_orders"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        app:tint="@color/app_color_primary"
+                        android:layout_alignBottom="@id/check_executed_orders_title"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="10dp"/>
 

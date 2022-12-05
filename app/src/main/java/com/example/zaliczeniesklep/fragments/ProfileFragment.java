@@ -28,8 +28,10 @@ public class ProfileFragment extends Fragment {
     private RelativeLayout saveLoginInfo;
 
     private RelativeLayout checkOrders;
+    private RelativeLayout checkAwaitingOrders;
+    private RelativeLayout checkExecutedOrders;
 
-    private Button loginButon;
+    private Button loginButton;
 
     private CheckBox checkBox;
 
@@ -48,7 +50,7 @@ public class ProfileFragment extends Fragment {
 
         activity = (MainActivity) getActivity();
 
-        loginButon = view.findViewById(R.id.login_button);
+        loginButton = view.findViewById(R.id.login_button);
 
         checkBox = view.findViewById(R.id.save_login_checkbox);
         checkBox.setOnClickListener(v -> toggleSaveUser());
@@ -69,6 +71,12 @@ public class ProfileFragment extends Fragment {
         checkOrders = view.findViewById(R.id.check_orders);
         checkOrders.setOnClickListener(v -> showOrders());
 
+        checkAwaitingOrders = view.findViewById(R.id.check_awaiting_orders);
+        checkAwaitingOrders.setOnClickListener(v -> showAwaitingOrders());
+
+        checkExecutedOrders = view.findViewById(R.id.check_executed_orders);
+        checkExecutedOrders.setOnClickListener(v -> showExecutedOrders());
+
         welcomeMessageTextView = view.findViewById(R.id.welcome_message);
         logoutTextView = view.findViewById(R.id.logout);
 
@@ -87,7 +95,7 @@ public class ProfileFragment extends Fragment {
 
         chooseLangSpinner.setAdapter(adapter);
 
-        loginButon.setOnClickListener(v -> runSignInFragment());
+        loginButton.setOnClickListener(v -> runSignInFragment());
 
         appInfo.setOnClickListener(v -> {
             Toast.makeText(activity, getResources().getString(R.string.hint_category_author) + ": Joachim Urban 4pp", Toast.LENGTH_LONG).show();
@@ -100,6 +108,26 @@ public class ProfileFragment extends Fragment {
 
     private void showOrders(){
         getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).replace(R.id.profile_fragment_layout, new ShowOrdersFragment()).commit();
+    }
+
+    private void showAwaitingOrders(){
+        Bundle bundle = new Bundle();
+        bundle.putInt("orderType", 0);
+
+        Fragment fragment = new ShowOrdersFragment();
+        fragment.setArguments(bundle);
+
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).replace(R.id.profile_fragment_layout, fragment).commit();
+    }
+
+    private void showExecutedOrders(){
+        Bundle bundle = new Bundle();
+        bundle.putInt("orderType", 1);
+
+        Fragment fragment = new ShowOrdersFragment();
+        fragment.setArguments(bundle);
+
+        getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).replace(R.id.profile_fragment_layout, fragment).commit();
     }
 
     private void toggleSaveUser(){
@@ -131,6 +159,16 @@ public class ProfileFragment extends Fragment {
             welcomeMessageTextView.setText(welcomeMessage);
             logoutTextView.setVisibility(View.VISIBLE);
             saveLoginInfo.setVisibility(View.VISIBLE);
+
+            if (activity.getUser() != null && activity.getUser().getUserType() == 1){
+                checkAwaitingOrders.setVisibility(View.VISIBLE);
+                checkExecutedOrders.setVisibility(View.VISIBLE);
+            }
+
+            else {
+                checkAwaitingOrders.setVisibility(View.GONE);
+                checkExecutedOrders.setVisibility(View.GONE);
+            }
         }
 
         else{

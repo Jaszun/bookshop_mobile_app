@@ -25,7 +25,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ShowOrdersFragment extends Fragment {
-    private DatabaseHelper helper;
     private RelativeLayout back;
     private ListView listView;
     private TextView noOrders;
@@ -59,11 +58,23 @@ public class ShowOrdersFragment extends Fragment {
         back = view.findViewById(R.id.show_orders_back_button_container);
         back.setOnClickListener(v -> hideFragment());
 
+        loadOrdersToListView();
+
+        return view;
+    }
+
+    public void loadOrdersToListView(){
+        DatabaseHelper helper = new DatabaseHelper(activity);
+
         ordersList = new ArrayList<>();
 
-        helper = new DatabaseHelper(activity);
+        if (getArguments() != null){
+            orders = helper.getOrdersByExecution(getArguments().getInt("orderType"));
+        }
 
-        orders = helper.getOrdersForUser(activity.getUser().getId());
+        else {
+            orders = helper.getOrdersForUser(activity.getUser().getId());
+        }
 
         Collections.reverse(orders);
 
@@ -75,14 +86,8 @@ public class ShowOrdersFragment extends Fragment {
         else{
             noOrders.setVisibility(View.GONE);
             listView.setVisibility(View.VISIBLE);
-
-            loadOrdersToListView();
         }
 
-        return view;
-    }
-
-    private void loadOrdersToListView(){
         for (int i = 0; i < orders.size(); i++){
             Order order = orders.get(i);
 

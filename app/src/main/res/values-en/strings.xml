@@ -94,7 +94,7 @@
     <string name="order_accepted">The order has been accepted!</string>
     <string name="modify_quantity_in_stock">Change the quantity of product in stock:</string>
     <string name="current_quantity">Current quantity of product:</string>
-    <string name="apply_changes">Apply</string>
+    <string name="apply_changes">Submit</string>
     <string name="modify_quantity_dialog_title">Modification of book quantity</string>
     <string name="modify_quantity_dialog_message">Are you sure you want to change the quantity of this book?</string>
     <string name="order_accepted_message">Your order has been accepted!</string>
@@ -106,4 +106,10 @@
     <string name="price_of_order">Price of order:</string>
     <string name="order_executed">The order has been executed</string>
     <string name="order_not_executed">The order awaits for execution</string>
+    <string name="check_awaiting_orders">Check awaiting orders</string>
+    <string name="check_executed_orders">Check executed orders</string>
+    <string name="confirm_execution">Confirm execution of the order</string>
+    <string name="execute_order_title">Submit order execution</string>
+    <string name="execute_order_message">Submitting order is permanent, you won\'t be able to change it\'s status afterwards.</string>
+    <string name="submited_execution">Submited execution of order</string>
 </resources>

@@ -111,4 +111,10 @@
     <string name="price_of_order">Cena zamówienia:</string>
     <string name="order_executed">Zamówienie zostało zrealizowane</string>
     <string name="order_not_executed">Zamówienie czeka na realizację</string>
+    <string name="check_awaiting_orders">Zobacz oczekujące zamówienia</string>
+    <string name="check_executed_orders">Zobacz zrealizowane zamówiena</string>
+    <string name="confirm_execution">Potwierdź realizację zamówienia</string>
+    <string name="execute_order_title">Zatwierdź realizację zamówienia</string>
+    <string name="execute_order_message">Zatwierdzenie zamówienia jest permanentne, później nie będzie można zmienić jego statusu.</string>
+    <string name="submited_execution">Zatwierdzono zrealizowanie zamówienia</string>
 </resources>

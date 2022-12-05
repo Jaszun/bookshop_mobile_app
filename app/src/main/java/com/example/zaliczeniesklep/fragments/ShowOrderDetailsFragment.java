@@ -1,13 +1,17 @@
 package com.example.zaliczeniesklep.fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,6 +22,7 @@ import com.example.zaliczeniesklep.R;
 import com.example.zaliczeniesklep.adapters.OrderAdapter;
 import com.example.zaliczeniesklep.database_entity.Order;
 import com.example.zaliczeniesklep.helper.DatabaseHelper;
+import com.example.zaliczeniesklep.schema.Schema;
 
 
 public class ShowOrderDetailsFragment extends Fragment {
@@ -29,6 +34,8 @@ public class ShowOrderDetailsFragment extends Fragment {
     private TextView dateOfPurchase;
     private TextView orderPrice;
     private TextView orderExecuted;
+
+    private Button confirmExecution;
 
     private Order order;
 
@@ -59,6 +66,17 @@ public class ShowOrderDetailsFragment extends Fragment {
         orderPrice = view.findViewById(R.id.order_details_price);
         orderExecuted = view.findViewById(R.id.order_executed);
 
+        confirmExecution = view.findViewById(R.id.confirm_order_execution);
+        confirmExecution.setOnClickListener(v -> confirmOrderExecution());
+
+        if (activity.getUser() != null && activity.getUser().getUserType() == 1 && order.getIsExecuted() == 0){
+            confirmExecution.setVisibility(View.VISIBLE);
+        }
+
+        else {
+            confirmExecution.setVisibility(View.GONE);
+        }
+
         dateOfPurchase.setText(order.getDate());
         orderPrice.setText(order.getPrice() + " PLN");
 
@@ -80,8 +98,37 @@ public class ShowOrderDetailsFragment extends Fragment {
         return view;
     }
 
+    private void confirmOrderExecution(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setMessage(activity.getResources().getString(R.string.execute_order_message));
+        builder.setTitle(activity.getResources().getString(R.string.execute_order_title));
+        builder.setCancelable(false);
+        builder.setNegativeButton(activity.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.setPositiveButton(activity.getResources().getString(R.string.apply_changes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                DatabaseHelper helper = new DatabaseHelper(activity);
+
+                helper.updateRowById(order, order.getId(), Schema.OrdersSchema.IS_EXECUTED_COLUMN, "1");
+
+                ((ShowOrdersFragment) getParentFragment()).loadOrdersToListView();
+
+                closeFragment();
+
+                Toast.makeText(activity, activity.getString(R.string.submited_execution), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
     private void closeFragment(){
         hideKeyboard();
+
         activity.toggleCartComponents();
 
         getParentFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).hide(this).commit();

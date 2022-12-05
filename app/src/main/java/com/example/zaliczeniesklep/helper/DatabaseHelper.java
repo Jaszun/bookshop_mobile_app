@@ -233,6 +233,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    public List<Order> getOrdersByExecution(int status){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Schema.DatabaseSchema.ORDER_TABLE + " WHERE " + Schema.OrdersSchema.IS_EXECUTED_COLUMN + " = " + status, null);
+
+        List<Order> orders = new ArrayList<>();
+
+        if (cursor.moveToFirst()) {
+            do {
+                orders.add(new Order(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getInt(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getFloat(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getInt(8)
+                        )
+                    );
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return orders;
+    }
+
     public Order getOrderByIdFromDB(int id){
         SQLiteDatabase db = this.getReadableDatabase();
 
