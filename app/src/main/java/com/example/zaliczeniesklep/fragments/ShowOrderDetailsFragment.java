@@ -34,6 +34,8 @@ public class ShowOrderDetailsFragment extends Fragment {
     private TextView dateOfPurchase;
     private TextView orderPrice;
     private TextView orderExecuted;
+    private TextView orderId;
+    private TextView orderPhoneNum;
 
     private Button confirmExecution;
 
@@ -65,20 +67,31 @@ public class ShowOrderDetailsFragment extends Fragment {
         dateOfPurchase = view.findViewById(R.id.order_details_date_of_purchase);
         orderPrice = view.findViewById(R.id.order_details_price);
         orderExecuted = view.findViewById(R.id.order_executed);
+        orderId = view.findViewById(R.id.order_details_id);
+        orderPhoneNum = view.findViewById(R.id.order_details_phone);
 
         confirmExecution = view.findViewById(R.id.confirm_order_execution);
         confirmExecution.setOnClickListener(v -> confirmOrderExecution());
 
-        if (activity.getUser() != null && activity.getUser().getUserType() == 1 && order.getIsExecuted() == 0){
-            confirmExecution.setVisibility(View.VISIBLE);
+        if (activity.getUser() != null && activity.getUser().getUserType() == 1){
+            orderPhoneNum.setVisibility(View.VISIBLE);
+            view.findViewById(R.id.order_details_phone_label).setVisibility(View.VISIBLE);
+
+            if (order.getIsExecuted() == 0){
+                confirmExecution.setVisibility(View.VISIBLE);
+            }
         }
 
         else {
+            view.findViewById(R.id.order_details_phone_label).setVisibility(View.GONE);
+            orderPhoneNum.setVisibility(View.GONE);
             confirmExecution.setVisibility(View.GONE);
         }
 
-        dateOfPurchase.setText(order.getDate());
+        orderId.setText(order.getId() + "");
+        dateOfPurchase.setText(order.getDate().split(" ")[0]);
         orderPrice.setText(order.getPrice() + " PLN");
+        orderPhoneNum.setText(order.getPhoneNumber());
 
         if (order.getIsExecuted() == 0){
             orderExecuted.setText(activity.getString(R.string.order_not_executed));

@@ -107,7 +107,7 @@
     <string name="buyer">Kupujący:</string>
     <string name="check_orders">Zobacz swoje zamówienia</string>
     <string name="no_orders">Nie znaleziono żadnych zamówień</string>
-    <string name="order_purchase_date">Data i czas zakupu:</string>
+    <string name="order_purchase_date">Data zakupu:</string>
     <string name="price_of_order">Cena zamówienia:</string>
     <string name="order_executed">Zamówienie zostało zrealizowane</string>
     <string name="order_not_executed">Zamówienie czeka na realizację</string>
@@ -117,4 +117,6 @@
     <string name="execute_order_title">Zatwierdź realizację zamówienia</string>
     <string name="execute_order_message">Zatwierdzenie zamówienia jest permanentne, później nie będzie można zmienić jego statusu.</string>
     <string name="submited_execution">Zatwierdzono zrealizowanie zamówienia</string>
+    <string name="order_id">Numer zamówienia:</string>
+    <string name="buyer_phone_num">Numer tel. kupującego:</string>
 </resources>
