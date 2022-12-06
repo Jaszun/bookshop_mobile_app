@@ -75,6 +75,7 @@ public class ShowOrderDetailsFragment extends Fragment {
 
         if (activity.getUser() != null && activity.getUser().getUserType() == 1){
             orderPhoneNum.setVisibility(View.VISIBLE);
+
             view.findViewById(R.id.order_details_phone_label).setVisibility(View.VISIBLE);
 
             if (order.getIsExecuted() == 0){
@@ -84,6 +85,7 @@ public class ShowOrderDetailsFragment extends Fragment {
 
         else {
             view.findViewById(R.id.order_details_phone_label).setVisibility(View.GONE);
+
             orderPhoneNum.setVisibility(View.GONE);
             confirmExecution.setVisibility(View.GONE);
         }
