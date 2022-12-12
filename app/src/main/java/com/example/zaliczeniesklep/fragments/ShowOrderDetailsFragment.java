@@ -81,6 +81,10 @@ public class ShowOrderDetailsFragment extends Fragment {
             if (order.getIsExecuted() == 0){
                 confirmExecution.setVisibility(View.VISIBLE);
             }
+
+            else {
+                confirmExecution.setVisibility(View.GONE);
+            }
         }
 
         else {

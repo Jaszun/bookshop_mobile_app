@@ -76,7 +76,9 @@ public class ShowOrdersFragment extends Fragment {
             orders = helper.getOrdersForUser(activity.getUser().getId());
         }
 
-        Collections.reverse(orders);
+        if (getArguments() != null && getArguments().getInt("orderType") != 0){
+            Collections.reverse(orders);
+        }
 
         if (orders.size() == 0){
             noOrders.setVisibility(View.VISIBLE);
