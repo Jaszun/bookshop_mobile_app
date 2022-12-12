@@ -288,6 +288,8 @@ public class MainActivity extends AppCompatActivity {
             helper.updateRowById(new Product(), item.getProduct_id(), Schema.ProductsSchema.QUANTITY_COLUMN, String.valueOf((products.get(item.getProduct_id() - 1).getCount() - item.getQuantity())));
         }
 
+        cart = new ArrayList<>();
+
         if (user == null){
             saveCartInSharedPreferences();
         }
@@ -295,8 +297,6 @@ public class MainActivity extends AppCompatActivity {
         else {
             helper.deleteRowByCondition(new CartItem(), Schema.CartSchema.USER_ID_COLUMN, String.valueOf(user.getId()));
         }
-
-        cart = new ArrayList<>();
     }
 
     public void addProductToCart(Product product, int quantity, boolean changeFromCart){

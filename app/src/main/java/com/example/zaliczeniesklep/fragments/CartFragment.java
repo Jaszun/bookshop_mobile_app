@@ -84,6 +84,12 @@ public class CartFragment extends Fragment {
             products = activity.getProducts();
         }
 
+        for (CartItem c : activity.getCart()){
+            if (c.getQuantity() == 0){
+                activity.getCart().remove(c);
+            }
+        }
+
         cartItems = activity.getCart();
 
         CartItemsAdapter adapter = new CartItemsAdapter(activity, cartItems, this);
@@ -129,6 +135,12 @@ public class CartFragment extends Fragment {
 
     public void updateRecyclerView(){
         finalPrice = 0;
+
+        for (CartItem c : activity.getCart()){
+            if (c.getQuantity() == 0){
+                activity.getCart().remove(c);
+            }
+        }
 
         cartItems = activity.getCart();
 

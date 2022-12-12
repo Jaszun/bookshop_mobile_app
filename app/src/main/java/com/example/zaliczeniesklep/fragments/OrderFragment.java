@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import com.example.zaliczeniesklep.adapters.OrderAdapter;
 import com.example.zaliczeniesklep.database_entity.CartItem;
 import com.example.zaliczeniesklep.database_entity.Order;
 import com.example.zaliczeniesklep.database_entity.Product;
+import com.example.zaliczeniesklep.email.Sender;
 import com.example.zaliczeniesklep.helper.DatabaseHelper;
 
 import java.time.LocalDateTime;
@@ -171,11 +173,11 @@ public class OrderFragment extends Fragment {
         DatabaseHelper helper = new DatabaseHelper(activity);
         helper.addNewOrder(order);
 
+        activity.clearCart();
+
 //        Log.i("123123123123", createMessageFromOrder(order));
 
         sendMessages(order);
-        
-        activity.clearCart();
 
         ((CartFragment)getParentFragment()).updateRecyclerView();
         
@@ -222,18 +224,13 @@ public class OrderFragment extends Fragment {
     }
 
     private void sendEmail(String message){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-//                try {
-//                    GMailSender sender = new GMailSender("takozsosem@gmail.com", "takozsosem123");
-//                    sender.sendMail(getString(R.string.order_accepted_message), message, "takozsosem@gmail.com", emailTextView.getText().toString());
-//                } catch (Exception e) {
-//                    Log.i("123123123123", e.getMessage(), e);
-//                }
-            }
+        try {
+            Sender sender = new Sender(emailTextView.getText().toString(), activity.getString(R.string.order_accepted), message);
 
-        }).start();
+            sender.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void sendSms(String message){
