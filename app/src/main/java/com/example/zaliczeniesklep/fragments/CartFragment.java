@@ -250,13 +250,15 @@ public class CartFragment extends Fragment {
 
                 missingItems.add("\n- " + product.getName() + " -> " + numOfMissingProducts);
 
+                int numOfMissingItems = Math.max(item.getQuantity() - numOfMissingProducts, 0);
+
                 if (activity.getUser() != null) {
-                    activity.getCart().get(activity.getCart().indexOf(item)).setQuantity(item.getQuantity() - numOfMissingProducts);
+                    activity.getCart().get(activity.getCart().indexOf(item)).setQuantity(numOfMissingItems);
                     helper.updateRowById(item, item.getId(), Schema.CartSchema.QUANTITY_COLUMN, String.valueOf(item.getQuantity() - numOfMissingProducts));
                 }
 
                 else {
-                    activity.getCart().get(activity.getCart().indexOf(item)).setQuantity(item.getQuantity() - numOfMissingProducts);
+                    activity.getCart().get(activity.getCart().indexOf(item)).setQuantity(numOfMissingItems);
                 }
             }
         }

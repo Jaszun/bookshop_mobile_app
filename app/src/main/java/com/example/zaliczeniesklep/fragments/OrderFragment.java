@@ -51,8 +51,6 @@ public class OrderFragment extends Fragment {
     private float price = 0;
     private List<CartItem> cart;
 
-    // TODO - send email with order
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
