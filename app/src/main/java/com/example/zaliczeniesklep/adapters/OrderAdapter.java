@@ -16,7 +16,6 @@ import com.example.zaliczeniesklep.database_entity.Order;
 import com.example.zaliczeniesklep.database_entity.Product;
 import com.example.zaliczeniesklep.helper.DatabaseHelper;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ItemViewHolder> {
@@ -69,9 +68,16 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ItemViewHold
 
         holder.title.setText(product.getName());
         holder.author.setText(product.getAuthor());
-        holder.cover.setImageDrawable(activity.getDrawable(product.getDrawableImageId()));
         holder.quantity.setText(String.valueOf(quantity));
         holder.price.setText(price);
+
+        try{
+            int drawableId = Integer.parseInt(product.getImage());
+
+            holder.cover.setImageDrawable(activity.getDrawable(drawableId));
+        } catch (Exception e){
+            holder.cover.setImageBitmap(activity.getBitmapFromImage(product.getImage()));
+        }
     }
 
     @Override

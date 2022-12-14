@@ -245,8 +245,8 @@ public class CartFragment extends Fragment {
         for (CartItem item : cartItems){
             Product product = helper.getProductByIdFromDB(item.getProduct_id());
 
-            if (product.getCount() < item.getQuantity()){
-                numOfMissingProducts = item.getQuantity() - product.getCount();
+            if (product.getQuantity() < item.getQuantity()){
+                numOfMissingProducts = item.getQuantity() - product.getQuantity();
 
                 missingItems.add("\n- " + product.getName() + " -> " + numOfMissingProducts);
 

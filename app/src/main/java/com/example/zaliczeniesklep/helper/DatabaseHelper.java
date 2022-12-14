@@ -16,7 +16,6 @@ import com.example.zaliczeniesklep.database_entity.Product;
 import com.example.zaliczeniesklep.database_entity.User;
 import com.example.zaliczeniesklep.schema.Schema;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getFloat(4),
                         cursor.getInt(5),
                         cursor.getString(6),
-                        Integer.valueOf(cursor.getString(7))
+                        cursor.getString(7)
                         ));
             } while (cursor.moveToNext());
         }
@@ -69,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getFloat(4),
                         cursor.getInt(5),
                         cursor.getString(6),
-                        Integer.valueOf(cursor.getString(7))
+                        cursor.getString(7)
                 ));
             } while (cursor.moveToNext());
         }
@@ -302,6 +301,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void addNewProduct(Product product){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String preperedStatement = "INSERT INTO " +
+                Schema.DatabaseSchema.PRODUCTS_TABLE + " (" +
+                Schema.ProductsSchema.NAME_COLUMN  + ", " +
+                Schema.ProductsSchema.CATEGORY_ID_COLUMN + ", " +
+                Schema.ProductsSchema.AUTHOR_COLUMN + ", " +
+                Schema.ProductsSchema.PRICE_COLUMN + ", " +
+                Schema.ProductsSchema.QUANTITY_COLUMN + ", " +
+                Schema.ProductsSchema.TAGS_COLUMN + ", " +
+                Schema.ProductsSchema.IMAGE_COLUMN + ")" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        Log.i("123456789", preperedStatement);
+
+        SQLiteStatement statement = db.compileStatement(preperedStatement);
+
+        statement.bindString(1, product.getName());
+        statement.bindLong(2, product.getCategory_id());
+        statement.bindString(3, product.getAuthor());
+        statement.bindDouble(4, product.getPrice());
+        statement.bindLong(5, product.getQuantity());
+        statement.bindString(6, product.getTags());
+        statement.bindString(7, String.valueOf(product.getImage()));
+
+        long rowId = statement.executeInsert();
+
+        Log.i("123456789", rowId + "");
+    }
+
     public void addNewUser(User user){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -416,9 +446,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(schema.CATEGORY_ID_COLUMN, ((Product) entity).getCategory_id());
             values.put(schema.AUTHOR_COLUMN, ((Product) entity).getAuthor());
             values.put(schema.PRICE_COLUMN, ((Product) entity).getPrice());
-            values.put(schema.QUANTITY_COLUMN, ((Product) entity).getCount());
+            values.put(schema.QUANTITY_COLUMN, ((Product) entity).getQuantity());
             values.put(schema.TAGS_COLUMN, ((Product) entity).getTags());
-            values.put(schema.IMAGE_COLUMN, String.valueOf(((Product) entity).getDrawableImageId()));
+            values.put(schema.IMAGE_COLUMN, String.valueOf(((Product) entity).getImage()));
         }
 
         else if(entity instanceof User){

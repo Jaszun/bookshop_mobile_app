@@ -2,7 +2,6 @@ package com.example.zaliczeniesklep.adapters;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,10 +54,9 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Item
 
         holder.title.setText(product.getName());
         holder.author.setText(product.getAuthor());
-        holder.imageView.setImageDrawable(activity.getDrawable(product.getDrawableImageId()));
         holder.quantity.setText(cartItem.getQuantity() + "");
 
-        if (cartItem.getQuantity() == product.getCount()){
+        if (cartItem.getQuantity() == product.getQuantity()){
             holder.incrementQuantityButton.setEnabled(false);
         }
 
@@ -70,6 +68,14 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Item
 
         holder.decrementQuantityButton.setOnClickListener(v -> decrementQuantity(cartItem, holder));
         holder.incrementQuantityButton.setOnClickListener(v -> incrementQuantity(cartItem, holder));
+
+        try{
+            int drawableId = Integer.parseInt(product.getImage());
+
+            holder.imageView.setImageDrawable(activity.getDrawable(drawableId));
+        } catch (Exception e){
+            holder.imageView.setImageBitmap(activity.getBitmapFromImage(product.getImage()));
+        }
     }
 
     @Override
@@ -107,10 +113,10 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Item
         int quantity = Integer.valueOf(holder.quantity.getText().toString());
 
         if (quantity - 1 > 0){
-            if (quantity > product.getCount()){
+            if (quantity > product.getQuantity()){
                 showAlertDialogForMissingItems(product, quantity);
 
-                quantity = product.getCount();
+                quantity = product.getQuantity();
 
                 holder.incrementQuantityButton.setEnabled(false);
             }
@@ -142,7 +148,9 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Item
 
         int quantity = Integer.valueOf(holder.quantity.getText().toString());
 
-        if (quantity + 1 <= product.getCount()){
+        if (quantity + 1 <= product.getQuantity()){
+            quantity++;
+
             holder.quantity.setText(quantity + "");
 
             float price = product.getPrice() * quantity;
@@ -154,10 +162,10 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Item
             activity.addProductToCart(product, quantity, true);
         }
 
-        else if (quantity > product.getCount()){
+        else if (quantity > product.getQuantity()){
             showAlertDialogForMissingItems(product, quantity);
 
-            quantity = product.getCount();
+            quantity = product.getQuantity();
 
             holder.incrementQuantityButton.setEnabled(false);
 
@@ -216,7 +224,7 @@ public class CartItemsAdapter extends RecyclerView.Adapter<CartItemsAdapter.Item
 
     private void showAlertDialogForMissingItems(Product product, int quantity){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setMessage(activity.getResources().getString(R.string.products_missing_message) + "\n" + product.getName() + " -> " + (quantity - product.getCount()));
+        builder.setMessage(activity.getResources().getString(R.string.products_missing_message) + "\n" + product.getName() + " -> " + (quantity - product.getQuantity()));
         builder.setTitle(activity.getResources().getString(R.string.products_missing_title));
         builder.setCancelable(false);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {

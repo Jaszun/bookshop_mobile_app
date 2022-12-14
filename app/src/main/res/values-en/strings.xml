@@ -114,4 +114,19 @@
     <string name="submited_execution">Submited execution of order</string>
     <string name="order_id">Order id:</string>
     <string name="buyer_phone_num">Buyers phone num:</string>
+    <string name="add_book_title">Book title:</string>
+    <string name="add_book_author">Author:</string>
+    <string name="add_book_price">Price:</string>
+    <string name="add_book_quantity">Quantity:</string>
+    <string name="add_book_category">Choose category:</string>
+    <string name="add_book_add_subcategory">Add subcategory:</string>
+    <string name="add_sth">Add</string>
+    <string name="add_book_add_cover_img">Choose cover image</string>
+    <string name="preview">Preview</string>
+    <string name="add_book">Add book to the system</string>
+    <string name="subcategory_error">You have to add a subcategory</string>
+    <string name="image_not_chosen_error">You have to add cover image</string>
+    <string name="add_book_dialog_title">Adding a new book</string>
+    <string name="add_book_dialog_message">Do you want to add new book to database?</string>
+    <string name="added_book">Book has been added to the database!</string>
 </resources>

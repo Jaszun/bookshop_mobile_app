@@ -119,4 +119,19 @@
     <string name="submited_execution">Zatwierdzono zrealizowanie zamówienia</string>
     <string name="order_id">Numer zamówienia:</string>
     <string name="buyer_phone_num">Numer tel. kupującego:</string>
+    <string name="add_book_title">Tytuł książki:</string>
+    <string name="add_book_author">Autor książki:</string>
+    <string name="add_book_price">Cena książki:</string>
+    <string name="add_book_quantity">Ilość:</string>
+    <string name="add_book_category">Wybierz kategorię:</string>
+    <string name="add_book_add_subcategory">Dodaj podkategorię:</string>
+    <string name="add_sth">Dodaj</string>
+    <string name="add_book_add_cover_img">Wybierz zdjęcie okładki</string>
+    <string name="preview">Podgląd</string>
+    <string name="add_book">Dodaj książkę do systemu</string>
+    <string name="subcategory_error">Należy dodać podkategorię</string>
+    <string name="image_not_chosen_error">Należy wybrać zdjęcie okładki</string>
+    <string name="add_book_dialog_title">Dodawanie książki</string>
+    <string name="add_book_dialog_message">Czy chcesz dodać książkę do bazy danych?</string>
+    <string name="added_book">Książka została dodana do bazy!</string>
 </resources>

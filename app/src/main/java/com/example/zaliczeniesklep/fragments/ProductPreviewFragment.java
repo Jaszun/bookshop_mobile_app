@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +25,6 @@ import com.example.zaliczeniesklep.R;
 import com.example.zaliczeniesklep.database_entity.Product;
 import com.example.zaliczeniesklep.helper.DatabaseHelper;
 import com.example.zaliczeniesklep.schema.Schema;
-
-import java.util.List;
 
 public class ProductPreviewFragment extends Fragment {
     private MainActivity activity;
@@ -95,7 +92,14 @@ public class ProductPreviewFragment extends Fragment {
             DatabaseHelper helper = new DatabaseHelper(activity);
             chosenProduct = helper.getProductByIdFromDB(getArguments().getInt("productId") + 1);
 
-            imageView.setImageDrawable(getResources().getDrawable(chosenProduct.getDrawableImageId()));
+            try{
+                int drawableId = Integer.parseInt(chosenProduct.getImage());
+
+                imageView.setImageDrawable(getResources().getDrawable(drawableId));
+            } catch (Exception e){
+                imageView.setImageBitmap(activity.getBitmapFromImage(chosenProduct.getImage()));
+            }
+
             titleTextView.setText(chosenProduct.getName());
             authorTextView.setText(chosenProduct.getAuthor());
             priceTextView.setText(chosenProduct.getPrice() + " PLN");
@@ -139,14 +143,14 @@ public class ProductPreviewFragment extends Fragment {
                         try{
                             changeStockQuantity = Integer.valueOf(adminQuantity.getText().toString());
 
-                            if (changeStockQuantity < chosenProduct.getCount() * (-1)){
-                                changeStockQuantity = chosenProduct.getCount() * (-1);
+                            if (changeStockQuantity < chosenProduct.getQuantity() * (-1)){
+                                changeStockQuantity = chosenProduct.getQuantity() * (-1);
                                 adminQuantity.setText(changeStockQuantity + "");
                                 adminDecrementQuantity.setEnabled(false);
                                 return;
                             }
 
-                            else if (changeStockQuantity == chosenProduct.getCount() * (-1)){
+                            else if (changeStockQuantity == chosenProduct.getQuantity() * (-1)){
                                 adminDecrementQuantity.setEnabled(false);
                                 return;
                             }
@@ -225,7 +229,7 @@ public class ProductPreviewFragment extends Fragment {
 
         for (int i = 0; i < activity.getCart().size(); i++){
             if (activity.getCart().get(i).getProduct_id() == chosenProduct.getId()){
-                int finalQuantity = chosenProduct.getCount() - activity.getCart().get(i).getQuantity();
+                int finalQuantity = chosenProduct.getQuantity() - activity.getCart().get(i).getQuantity();
 
                 if (finalQuantity < 0){
                     return 0;
@@ -234,7 +238,7 @@ public class ProductPreviewFragment extends Fragment {
             }
         }
 
-        return chosenProduct.getCount();
+        return chosenProduct.getQuantity();
     }
 
     private void incrementQuantity(){
@@ -289,7 +293,7 @@ public class ProductPreviewFragment extends Fragment {
     }
 
     private void decrementQuantityInStock(){
-        if (changeStockQuantity - 1 <= chosenProduct.getCount() * (-1)){
+        if (changeStockQuantity - 1 <= chosenProduct.getQuantity() * (-1)){
             changeStockQuantity--;
             adminDecrementQuantity.setEnabled(false);
             adminQuantity.setText(changeStockQuantity + "");
@@ -312,13 +316,13 @@ public class ProductPreviewFragment extends Fragment {
         DatabaseHelper helper = new DatabaseHelper(activity);
 
         chosenProduct = helper.getProductByIdFromDB(chosenProduct.getId());
-        currentQuantity.setText(getString(R.string.current_quantity) + " " + chosenProduct.getCount());
+        currentQuantity.setText(getString(R.string.current_quantity) + " " + chosenProduct.getQuantity());
     }
 
     private void applyChanges(){
         DatabaseHelper helper = new DatabaseHelper(activity);
 
-        helper.updateRowById(chosenProduct, chosenProduct.getId(), Schema.ProductsSchema.QUANTITY_COLUMN, String.valueOf((chosenProduct.getCount() + changeStockQuantity)));
+        helper.updateRowById(chosenProduct, chosenProduct.getId(), Schema.ProductsSchema.QUANTITY_COLUMN, String.valueOf((chosenProduct.getQuantity() + changeStockQuantity)));
 
         setCurrentQuantityTextView();
 
@@ -333,7 +337,7 @@ public class ProductPreviewFragment extends Fragment {
 
     private void showDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-        builder.setMessage(activity.getResources().getString(R.string.modify_quantity_dialog_message) + "\n\n" + chosenProduct.getName() + ": " + chosenProduct.getCount() + " -> " + (chosenProduct.getCount() + changeStockQuantity));
+        builder.setMessage(activity.getResources().getString(R.string.modify_quantity_dialog_message) + "\n\n" + chosenProduct.getName() + ": " + chosenProduct.getQuantity() + " -> " + (chosenProduct.getQuantity() + changeStockQuantity));
         builder.setTitle(activity.getResources().getString(R.string.modify_quantity_dialog_title));
         builder.setCancelable(false);
         builder.setNegativeButton(activity.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {

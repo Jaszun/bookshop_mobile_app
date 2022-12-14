@@ -42,13 +42,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ItemVi
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Product product = products.get(position);
 
-        int image = product.getDrawableImageId();
-
         String title = (product.getName().length() >= 35 ? product.getName().substring(0, 32) + "..." : product.getName());
 
         holder.title.setText(title);
 
-        holder.imageView.setImageDrawable(activity.getDrawable(image));
         holder.author.setText(product.getAuthor());
         holder.price.setText(product.getPrice() + " PLN");
 
@@ -71,6 +68,14 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ItemVi
                 }
             }
         });
+
+        try{
+            int drawableId = Integer.parseInt(product.getImage());
+
+            holder.imageView.setImageDrawable(activity.getResources().getDrawable(drawableId));
+        } catch (Exception e){
+            holder.imageView.setImageBitmap(activity.getBitmapFromImage(product.getImage()));
+        }
     }
 
     @Override

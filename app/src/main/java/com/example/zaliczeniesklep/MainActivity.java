@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MenuItem;
@@ -26,10 +30,12 @@ import com.example.zaliczeniesklep.database_entity.CartItem;
 import com.example.zaliczeniesklep.database_entity.Category;
 import com.example.zaliczeniesklep.database_entity.Product;
 import com.example.zaliczeniesklep.database_entity.User;
+import com.example.zaliczeniesklep.fragments.AddBookFragment;
 import com.example.zaliczeniesklep.fragments.CartFragment;
 import com.example.zaliczeniesklep.fragments.HomeFragment;
 import com.example.zaliczeniesklep.fragments.ProfileFragment;
 import com.example.zaliczeniesklep.fragments.SearchFragment;
+import com.example.zaliczeniesklep.fragments.ShowOrdersFragment;
 import com.example.zaliczeniesklep.helper.DatabaseHelper;
 import com.example.zaliczeniesklep.schema.Schema;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -38,8 +44,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //<div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div><div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
@@ -93,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
         moveToFragment(getCurrentFragmentId());
 
         askForPermission(Manifest.permission.SEND_SMS, MY_PERMISSION_REQUEST_SEND_SMS);
+    }
+
+    public void refershProducts(){
+        DatabaseHelper helper = new DatabaseHelper(this);
+
+        products = helper.getProductsFromDB();
     }
 
     private void countNumOfGridCols(){
@@ -285,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
         for (CartItem item : cart){
 //            Log.i("123456789", products.get(item.getProduct_id() - 1).getCount()+ "");
 //            Log.i("123456789", item.getQuantity() + "");
-            helper.updateRowById(new Product(), item.getProduct_id(), Schema.ProductsSchema.QUANTITY_COLUMN, String.valueOf((products.get(item.getProduct_id() - 1).getCount() - item.getQuantity())));
+            helper.updateRowById(new Product(), item.getProduct_id(), Schema.ProductsSchema.QUANTITY_COLUMN, String.valueOf((products.get(item.getProduct_id() - 1).getQuantity() - item.getQuantity())));
         }
 
         cart = new ArrayList<>();
@@ -307,8 +322,8 @@ public class MainActivity extends AppCompatActivity {
                 if (i.getProduct_id() == product.getId()){
                     int finalQuantity = (changeFromCart ? quantity : i.getQuantity() + quantity);
 
-                    if (finalQuantity > product.getCount()){
-                        finalQuantity = product.getCount();
+                    if (finalQuantity > product.getQuantity()){
+                        finalQuantity = product.getQuantity();
                     }
 
                     i.setQuantity(finalQuantity);
@@ -332,8 +347,8 @@ public class MainActivity extends AppCompatActivity {
                 if (i.getProduct_id() == product.getId()){
                     int finalQuantity = (changeFromCart ? quantity : i.getQuantity() + quantity);
 
-                    if (finalQuantity > product.getCount()){
-                        finalQuantity = product.getCount();
+                    if (finalQuantity > product.getQuantity()){
+                        finalQuantity = product.getQuantity();
                     }
 
                     i.setQuantity(finalQuantity);
@@ -444,6 +459,34 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void toggleHomeComponents(){
+        NestedScrollView scrollView = this.findViewById(R.id.home_main_scroll_view);
+
+        if (scrollView != null){
+            if (scrollView.getVisibility() == View.VISIBLE){
+                scrollView.setVisibility(View.GONE);
+            }
+
+            else {
+                scrollView.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    public void toggleSearchComponents(){
+        NestedScrollView scrollView = this.findViewById(R.id.search_main_scroll_view);
+
+        if (scrollView != null){
+            if (scrollView.getVisibility() == View.VISIBLE){
+                scrollView.setVisibility(View.GONE);
+            }
+
+            else {
+                scrollView.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
     public void toggleSearchEditText(){
         EditText homeEditText = this.findViewById(R.id.home_search_bar_edit_text);
         EditText searchEditText = this.findViewById(R.id.search_search_bar_edit_text);
@@ -544,7 +587,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addNewBook(){
-        Toast.makeText(this, "Adding a new book", Toast.LENGTH_SHORT).show();
+        int containerViewId;
+
+        switch (getCurrentFragmentId()){
+            case 1:
+                containerViewId = R.id.search_fragment_layout;
+                break;
+            case 2:
+                containerViewId = R.id.cart_fragment_layout;
+                break;
+            case 3:
+                containerViewId = R.id.profile_fragment_layout;
+                break;
+            default:
+                containerViewId = R.id.home_fragment_layout;
+        }
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("currentFragmentId", getCurrentFragmentId());
+
+        Fragment fragment = new AddBookFragment();
+        fragment.setArguments(bundle);
+
+        getSupportFragmentManager().findFragmentById(R.id.fragment_container).getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_top, R.anim.fragment_slide_out_top).replace(containerViewId, fragment).commit();
+    }
+
+    public Bitmap getBitmapFromImage(String imageName){
+        Bitmap bitmap = null;
+
+        File storageDir = new File(String.valueOf(getExternalFilesDir("book_covers")));
+
+        File image = new File(storageDir.getPath() + "/" + imageName);
+
+        Uri uri = Uri.fromFile(image);
+
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return bitmap;
     }
 
     private void loadDataAfterWipe(){

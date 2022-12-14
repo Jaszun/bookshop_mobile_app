@@ -1,35 +1,49 @@
 package com.example.zaliczeniesklep.database_entity;
 
+import android.util.Log;
+
+import java.util.List;
+
 public class Product extends DatabaseEntity{
     private String name;
     private int category_id;
     private String author;
     private float price;
-    private int count;
+    private int quantity;
     private String tags;
-    private int drawableImageId;
+    private String image;
 
     public Product(){}
 
-    public Product(String name, int category_id, String author, float price, int count, String tags, int drawableImageId) {
+    public Product(String name, int category_id, String author, float price, int quantity, String tags, String image) {
         this.name = name;
         this.category_id = category_id;
         this.author = author;
         this.price = price;
-        this.count = count;
+        this.quantity = quantity;
         this.tags = tags;
-        this.drawableImageId = drawableImageId;
+        this.image = image;
     }
 
-    public Product(int id, String name, int category_id, String author, float price, int count, String tags, int drawableImageId) {
+    public Product(String name, int category_id, String author, float price, int quantity, String tags, int image) {
+        this.name = name;
+        this.category_id = category_id;
+        this.author = author;
+        this.price = price;
+        this.quantity = quantity;
+        this.tags = tags;
+        this.image = String.valueOf(image);
+    }
+
+    public Product(int id, String name, int category_id, String author, float price, int quantity, String tags, String image) {
         super(id);
         this.name = name;
         this.category_id = category_id;
         this.author = author;
         this.price = price;
-        this.count = count;
+        this.quantity = quantity;
         this.tags = tags;
-        this.drawableImageId = drawableImageId;
+        this.image = image;
     }
 
     public String getName() {
@@ -64,12 +78,12 @@ public class Product extends DatabaseEntity{
         this.price = price;
     }
 
-    public int getCount() {
-        return count;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getTags() {
@@ -80,16 +94,29 @@ public class Product extends DatabaseEntity{
         this.tags = tags;
     }
 
-    public int getDrawableImageId() {
-        return drawableImageId;
+    public String getImage() {
+        return image;
     }
 
-    public void setDrawableImageId(int drawableImageId) {
-        this.drawableImageId = drawableImageId;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String[] getTagsArray(){
         return tags.split(":");
+    }
+
+    public static String convertListToTags(List<String> tagsList){
+        String tags = "";
+        for (String s : tagsList){
+            tags += s + ":";
+        }
+
+        tags = tags.substring(0, tags.length() - 1);
+
+        Log.i("123321123", tags);
+
+        return tags;
     }
 
     @Override
@@ -100,9 +127,9 @@ public class Product extends DatabaseEntity{
                 ", category_id=" + category_id +
                 ", author='" + author + '\'' +
                 ", price=" + price +
-                ", count=" + count +
+                ", quantity=" + quantity +
                 ", tags='" + tags + '\'' +
-                ", drawableImageId=" + drawableImageId +
+                ", drawableImageId=" + image +
                 '}';
     }
 }
