@@ -194,49 +194,49 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/change_theme_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/save_login_info"
-                    android:text="@string/change_theme"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="60dp"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/change_theme_text_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/save_login_info"-->
+<!--                    android:text="@string/change_theme"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="60dp"/>-->
 
-                <Spinner
-                    android:id="@+id/choose_theme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:layout_alignBottom="@id/change_theme_text_view"
-                    android:layout_alignParentRight="true" />
+<!--                <Spinner-->
+<!--                    android:id="@+id/choose_theme"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="22dp"-->
+<!--                    android:layout_alignBottom="@id/change_theme_text_view"-->
+<!--                    android:layout_alignParentRight="true" />-->
 
-                <TextView
-                    android:id="@+id/change_language_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/change_theme_text_view"
-                    android:text="@string/change_language"
-                    android:textColor="@color/white"
-                    android:textSize="16dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="60dp"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/change_language_text_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/change_theme_text_view"-->
+<!--                    android:text="@string/change_language"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="60dp"/>-->
 
-                <Spinner
-                    android:id="@+id/choose_language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:layout_alignBottom="@id/change_language_text_view"
-                    android:layout_alignParentRight="true"/>
+<!--                <Spinner-->
+<!--                    android:id="@+id/choose_language"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="22dp"-->
+<!--                    android:layout_alignBottom="@id/change_language_text_view"-->
+<!--                    android:layout_alignParentRight="true"/>-->
 
                 <RelativeLayout
                     android:id="@+id/app_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/change_language_text_view"
+                    android:layout_below="@id/save_login_info"
                     android:layout_marginTop="20dp">
 
                     <TextView

@@ -69,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean admin = false;
     private boolean rememberUser = false;
-
-    // TODO - add AddNewBookFragment and update addNewBook method
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -551,23 +548,23 @@ public class MainActivity extends AppCompatActivity {
         Button button = this.findViewById(R.id.login_button);
 
         if (button != null){
-            Spinner themeSpinner = this.findViewById(R.id.choose_theme);
-            Spinner langSpinner = this.findViewById(R.id.choose_language);
+//            Spinner themeSpinner = this.findViewById(R.id.choose_theme);
+//            Spinner langSpinner = this.findViewById(R.id.choose_language);
             RelativeLayout appInfo = this.findViewById(R.id.app_info);
             RelativeLayout checkOrders = this.findViewById(R.id.check_orders);
 
             if (button.isEnabled()){
                 button.setEnabled(false);
-                themeSpinner.setEnabled(false);
-                langSpinner.setEnabled(false);
+//                themeSpinner.setEnabled(false);
+//                langSpinner.setEnabled(false);
                 appInfo.setVisibility(View.GONE);
                 checkOrders.setVisibility(View.GONE);
             }
 
             else{
                 button.setEnabled(true);
-                themeSpinner.setEnabled(true);
-                langSpinner.setEnabled(true);
+//                themeSpinner.setEnabled(true);
+//                langSpinner.setEnabled(true);
                 appInfo.setVisibility(View.VISIBLE);
                 checkOrders.setVisibility(View.VISIBLE);
             }

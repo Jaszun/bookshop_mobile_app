@@ -38,10 +38,8 @@ public class ProfileFragment extends Fragment {
     private TextView welcomeMessageTextView;
     private TextView logoutTextView;
 
-    private Spinner chooseThemeSpinner;
-    private Spinner chooseLangSpinner;
-
-    // TODO - make changing theme and language work or delete it
+//    private Spinner chooseThemeSpinner;
+//    private Spinner chooseLangSpinner;
 
     @Nullable
     @Override
@@ -82,18 +80,18 @@ public class ProfileFragment extends Fragment {
 
         logoutTextView.setOnClickListener(v -> logout());
 
-        chooseThemeSpinner = view.findViewById(R.id.choose_theme);
-        chooseLangSpinner = view.findViewById(R.id.choose_language);
+//        chooseThemeSpinner = view.findViewById(R.id.choose_theme);
+//        chooseLangSpinner = view.findViewById(R.id.choose_language);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(activity, R.array.themes, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        chooseThemeSpinner.setAdapter(adapter);
-
-        adapter = ArrayAdapter.createFromResource(activity, R.array.languages, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        chooseLangSpinner.setAdapter(adapter);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(activity, R.array.themes, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        chooseThemeSpinner.setAdapter(adapter);
+//
+//        adapter = ArrayAdapter.createFromResource(activity, R.array.languages, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        chooseLangSpinner.setAdapter(adapter);
 
         loginButton.setOnClickListener(v -> runSignInFragment());
 
