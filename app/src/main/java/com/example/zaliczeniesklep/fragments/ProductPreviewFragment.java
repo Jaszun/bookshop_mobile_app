@@ -215,12 +215,13 @@ public class ProductPreviewFragment extends Fragment {
     }
 
     public void hidePreview(){
-        getParentFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_right).hide(this).commit();
         activity.toggleSearchEditText();
 
         if (activity.getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof SearchFragment){
             activity.toggleShowAllCategoriesButton();
         }
+
+        getParentFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_right).hide(this).commit();
     }
 
     private int countMaxQuantity(){

@@ -787,4 +787,23 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+
+        if (fragments.size() == 1 && fragments.get(0).getChildFragmentManager().getFragments().size() == 0){
+            if (fragments.get(0) instanceof HomeFragment){
+                super.onBackPressed();
+            }
+
+            else {
+                moveToFragment(0);
+            }
+        }
+
+        else {
+            moveToFragment(getCurrentFragmentId());
+        }
+    }
 }

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.zaliczeniesklep.MainActivity;
@@ -22,10 +23,12 @@ import java.util.List;
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ItemViewHolder> {
     private MainActivity activity;
     private List<Product> products;
+    private Fragment parent;
 
-    public ProductsAdapter(MainActivity activity, List<Product> products){
+    public ProductsAdapter(MainActivity activity, Fragment parent, List<Product> products){
         this.activity = activity;
         this.products = products;
+        this.parent = parent;
     }
 
     @NonNull
@@ -60,11 +63,11 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ItemVi
                 fragment.setArguments(bundle);
 
                 if (activity.getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof HomeFragment){
-                    activity.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_right).replace(R.id.home_fragment_layout, fragment).commit();
+                    parent.getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_right).replace(R.id.home_fragment_layout, fragment).commit();
                 }
 
                 else if (activity.getSupportFragmentManager().findFragmentById(R.id.fragment_container) instanceof SearchFragment){
-                    activity.getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_right).replace(R.id.search_fragment_layout, fragment).commit();
+                    parent.getChildFragmentManager().beginTransaction().setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_right).replace(R.id.search_fragment_layout, fragment).commit();
                 }
             }
         });

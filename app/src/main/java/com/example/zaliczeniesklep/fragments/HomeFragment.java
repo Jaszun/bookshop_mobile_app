@@ -133,7 +133,7 @@ public class HomeFragment extends Fragment {
         showMoreProducts();
 
         CategoriesAdapter categoriesAdapter = new CategoriesAdapter(activity, categories);
-        ProductsAdapter productsAdapter = new ProductsAdapter(activity, products.stream().limit(numberOfShowProducts).collect(Collectors.toList()));
+        ProductsAdapter productsAdapter = new ProductsAdapter(activity, this, products.stream().limit(numberOfShowProducts).collect(Collectors.toList()));
 
         recyclerViewCategories.setAdapter(categoriesAdapter);
         recyclerViewProducts.setAdapter(productsAdapter);
@@ -176,7 +176,7 @@ public class HomeFragment extends Fragment {
             }
         }
 
-        recyclerViewProducts.setAdapter(new ProductsAdapter(activity, products.stream().limit(numberOfShowProducts).collect(Collectors.toList())));
+        recyclerViewProducts.setAdapter(new ProductsAdapter(activity, this, products.stream().limit(numberOfShowProducts).collect(Collectors.toList())));
     }
 
     private void search(String searchFor){

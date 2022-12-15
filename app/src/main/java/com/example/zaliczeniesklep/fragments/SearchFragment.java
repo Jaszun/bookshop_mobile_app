@@ -142,7 +142,7 @@ public class SearchFragment extends Fragment {
 
         showMoreProducts(temporarlyShownProducts.size());
 
-        ProductsAdapter productsAdapter = new ProductsAdapter(activity, temporarlyShownProducts.stream().limit(numberOfShowProducts).collect(Collectors.toList()));
+        ProductsAdapter productsAdapter = new ProductsAdapter(activity, this, temporarlyShownProducts.stream().limit(numberOfShowProducts).collect(Collectors.toList()));
 
         recyclerViewProducts.setAdapter(productsAdapter);
 
@@ -173,7 +173,7 @@ public class SearchFragment extends Fragment {
             }
         }
 
-        recyclerViewProducts.setAdapter(new ProductsAdapter(activity, filteredProducts.stream().limit(numberOfShowProducts).collect(Collectors.toList())));
+        recyclerViewProducts.setAdapter(new ProductsAdapter(activity, this, filteredProducts.stream().limit(numberOfShowProducts).collect(Collectors.toList())));
     }
 
     private void changeCategory(){
@@ -202,7 +202,7 @@ public class SearchFragment extends Fragment {
 
         showMoreProducts(temporarlyShownProducts.size());
 
-        recyclerViewProducts.setAdapter(new ProductsAdapter(activity, temporarlyShownProducts.stream().limit(numberOfShowProducts).collect(Collectors.toList())));
+        recyclerViewProducts.setAdapter(new ProductsAdapter(activity, this, temporarlyShownProducts.stream().limit(numberOfShowProducts).collect(Collectors.toList())));
 
         toggleNoBooksFound(temporarlyShownProducts.size());
     }
