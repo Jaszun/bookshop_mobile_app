@@ -23,6 +23,9 @@ A school final project for mobile applications (using SQLite)
 ## Order fragment 
 <img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/10.jpg" height="400" />
 
+## Example of email message after making an order
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/27.png" height="400" />
+
 ## Profile fragment
 <img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/11.jpg" height="400" />
 
@@ -33,7 +36,26 @@ A school final project for mobile applications (using SQLite)
 ## Profile fragment (after logging in)
 <img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/14.jpg" height="400" />
 
-## Item details fragment (admin view)
+## Logged user orders list and details of chosen order
 <img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/15.jpg" height="400" />
 <img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/16.jpg" height="400" />
+
+## (Admin) Profile fragment (after logging in)
 <img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/17.jpg" height="400" />
+
+## (Admin) Awaiting orders list and details of chosen order
+### (With posibility of marking order as executed)
+
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/18.jpg" height="400" />
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/19.jpg" height="400" />
+
+## (Admin) Item details fragment
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/20.jpg" height="400" />
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/21.jpg" height="400" />
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/22.jpg" height="400" />
+
+## (Admin) Adding new book to the database
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/23.jpg" height="400" />
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/24.jpg" height="400" />
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/25.jpg" height="400" />
+<img src="https://github.com/Jaszun/bookshop_mobile_app/blob/master/screenshots/26.jpg" height="400" />
